@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    series: [{
+        type: 'treemap',
+        data: [{
+            name: 'Loans and advances',            // First tree
+            value: 385788,
+            children: [{
+                name: 'Loans and advances to banks ',       // First leaf of first tree
+                value: 30138
+            }, {
+                name: 'Loans and advances to customers',       // Second leaf of first tree
+                value: 351950
+            }, {
+                name: 'Prepayments, accrued income and other assets ',       // Second leaf of first tree
+                value: 3700
+            }]
+        }, {
+            name: 'Cash and balances at central banks',            
+            value: 74250,
+        }, {
+            name: 'Debt securities',
+            value: 72522,
+            children: [{
+                name: 'Debt securities subject to repurchase agreements',            
+                value: 18107
+            },{
+                name: 'Other debt securities',
+                value: 54415
+            }]
+        }, {
+            name: 'Equity shares',            
+            value: 703,
+        }, {
+            name: 'Settlement balances',            
+            value: 5526,
+        }, {
+            name: 'Derivatives',            
+            value: 246981,
+        }, {
+            name: 'Intangible assets',            
+            value: 6480,
+        }, {
+            name: 'Property, plant and equipment',            
+            value: 4590,
+        }, {
+            name: 'Deferred tax',            
+            value: 1803,
+        }, {
+            name: 'Assets of disposal groups',            
+            value: 13,
+        }]
+    }]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

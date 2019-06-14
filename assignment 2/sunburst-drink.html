@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [{
+    name: 'Barclay UK',
+    itemStyle: {
+        color: '#da1d23'
+    },
+    children: [{
+        name: 'Net Interest\nIncome',
+        itemStyle: {
+            color: '#dd4c51'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 1501,
+            itemStyle: {
+                color: '#3e0317'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 1476,
+            itemStyle: {
+                color: '#e62969'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 1569,
+            itemStyle: {
+                color: '#6569b0'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 1502,
+            itemStyle: {
+                color: '#ef2d36'
+            }
+        }]
+    }, {
+        name: 'Net Fee\nIncome',
+        itemStyle: {
+            color: '#c94a44'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 302,
+            itemStyle: {
+                color: '#b53b54'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 467,
+            itemStyle: {
+                color: '#a5446f'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 374,
+            itemStyle: {
+                color: '#a5446f'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 326,
+            itemStyle: {
+                color: '#a5446f'
+            }
+        }]
+    }]
+}, {
+    name: 'Barclay\nInternational',
+    itemStyle: {
+        color: '#ebb40f'
+    },
+    children: [{
+        name: 'Net Interest\nIncome',
+        itemStyle: {
+            color: '#e1c315'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 1110,
+            itemStyle: {
+                color: '#9ea718'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 1001,
+            itemStyle: {
+                color: '#94a76f'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 1355,
+            itemStyle: {
+                color: '#d0b24f'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 1046,
+            itemStyle: {
+                color: '#8eb646'
+            }
+        }]
+    }, {
+        name: 'Net Trading\nIncome',
+        itemStyle: {
+            color: '#b09733'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 1245,
+            itemStyle: {
+                color: '#8f1c53'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 1130,
+            itemStyle: {
+                color: '#b34039'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 1074,
+            itemStyle: {
+                color: '#ba9232'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 1131,
+            itemStyle: {
+                color: '#8b6439'
+            }
+        }]
+    }, {
+        name: 'Net Fee\nIncome',
+        itemStyle: {
+            color: '#b09733'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 1158,
+            itemStyle: {
+                color: '#8f1c53'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 1908,
+            itemStyle: {
+                color: '#b34039'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 1422,
+            itemStyle: {
+                color: '#ba9232'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 1415,
+            itemStyle: {
+                color: '#8b6439'
+            }
+        }]
+    }, {
+        name: 'Other Net\nIncome',
+        itemStyle: {
+            color: '#b09733'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 8,
+            itemStyle: {
+                color: '#8f1c53'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 11,
+            itemStyle: {
+                color: '#b34039'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 8,
+            itemStyle: {
+                color: '#ba9232'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 5,
+            itemStyle: {
+                color: '#8b6439'
+            }
+        }]
+    }]
+}, {
+    name: 'Head Office',
+    itemStyle: {
+        color: '#187a2f'
+    },
+    children: [{
+        name: 'Net Interest\nIncome',
+        value: 43,
+        itemStyle: {
+            color: '#a2b029'
+        }
+    }, {
+        name: 'Net Fee\nIncome',
+        value: 337,
+        itemStyle: {
+            color: '#718933'
+        }
+    }, {
+        name: 'Other Net\nIncome',
+        value: 160,
+        itemStyle: {
+            color: '#3aa255'
+        }
+    }]
+}, {
+    name: 'Africa Banking',
+    itemStyle: {
+        color: '#0aa3b5'
+    },
+    children: [{
+        name: 'Net Interest\nIncome',
+        itemStyle: {
+            color: '#9db2b7'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 480,
+            itemStyle: {
+                color: '#8b8c90'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 502,
+            itemStyle: {
+                color: '#beb276'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 561,
+            itemStyle: {
+                color: '#fefef4'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 626,
+            itemStyle: {
+                color: '#744e03'
+            }
+        }]
+    }, {
+        name: 'Net Fee\nIncome',
+        itemStyle: {
+            color: '#76c0cb'
+        },
+        children: [{
+            name: 'Quarter1',
+            value: 338,
+            itemStyle: {
+                color: '#80a89d'
+            }
+        }, {
+            name: 'Quarter2',
+            value: 377,
+            itemStyle: {
+                color: '#def2fd'
+            }
+        }, {
+            name: 'Quarter3',
+            value: 421,
+            itemStyle: {
+                color: '#7a9bae'
+            }
+        }, {
+            name: 'Quarter4',
+            value: 441,
+            itemStyle: {
+                color: '#039fb8'
+            }
+        }]
+    }, {
+        name: 'Other Net\nIncome',
+        value: 6,
+        itemStyle: {
+            color: '#9db2b7'
+        }
+    }]
+}];
+
+option = {
+    title: {
+        textStyle: {
+            fontSize: 14,
+            align: 'center'
+        },
+        subtextStyle: {
+            align: 'center'
+        },
+    },
+    series: {
+        type: 'sunburst',
+        highlightPolicy: 'ancestor',
+        data: data,
+        radius: [0, '95%'],
+        sort: null,
+        levels: [{}, {
+            r0: '15%',
+            r: '35%',
+            itemStyle: {
+                borderWidth: 2
+            },
+            label: {
+                rotate: 'tangential'
+            }
+        }, {
+            r0: '35%',
+            r: '70%',
+            label: {
+                align: 'right'
+            }
+        }, {
+            r0: '70%',
+            r: '72%',
+            label: {
+                position: 'outside',
+                padding: 3,
+                silent: false
+            },
+            itemStyle: {
+                borderWidth: 3
+            }
+        }]
+    }
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

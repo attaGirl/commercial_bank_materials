@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    series: [{
+        type: 'treemap',
+        data: [{
+            name: 'Reverse repo – non-trading',            // First tree
+            value: 160974
+        }, {
+            name: 'Loans and advances',            // Second tree
+            value: 1009150,
+            children: [{
+                name: 'Loans and advances to banks',
+                value: 88126
+            },{
+                name: 'Loans and advances to customers',
+                value: 861504
+            },{
+                name: 'Prepayments, accrued income and other assets',
+                value: 59520
+            }]
+        },{
+            name: 'Cash at central banks',
+            value: 128009
+        },{
+            name: 'Goodwill and intangible assets',
+            value: 21346
+        },{
+            name: 'Deferred tax assets',
+            value: 6163
+        },{
+            name: 'Interests in associates and joint ventures',
+            value: 20029
+        },{
+            name: 'Items in the course of collection from other banks',
+            value: 5003
+        },{
+            name: 'Hong Kong Government certificates of indebtedness',
+            value: 31228
+        },{
+            name: 'Derivatives',
+            value: 290872
+        },{
+            name: 'Assets for sale and trade',
+            value: 235125
+        },{
+            name: 'Financial investments',
+            value: 436797
+        },{
+            name: 'Financial assets designated at fair value',
+            value: 24756
+        },{
+            name: 'Assets held for sale',
+            value: 4389
+        },{
+            name: 'Current tax assets',
+            value: 1145
+        }]
+    }]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
